@@ -1,3 +1,13 @@
 <h2>Edit User</h2>
 
 <%= render 'form', user: current_user %>
+
+<h2>My Reservations</h2>
+
+<ul>
+  <li>
+    <% current_user.reservations(created_at: :desc).each do |reservation| %>
+      <%= reservation %>
+    <% end %>
+  </li>
+</ul>
