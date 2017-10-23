@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  city: MyString
+  price_range: 9.99
+  total_seats: 1
+  open_hour: 2017-10-23 15:06:23
+  close_hour: 2017-10-23 15:06:23
+  user_id: 1
+
+two:
+  name: MyString
+  address: MyString
+  city: MyString
+  price_range: 9.99
+  total_seats: 1
+  open_hour: 2017-10-23 15:06:23
+  close_hour: 2017-10-23 15:06:23
+  user_id: 1
