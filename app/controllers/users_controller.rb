@@ -1,19 +1,23 @@
 class UsersController < ApplicationController
 
+  def index
+  end
+
   def new
-    @user = User.all
+    @user = User.new
   end
 
   def create
-    @user = User.new(@params)
+    @user = User.new(user_params)
     if @user.save
       flash[:notice] = "#{@user.name} has been saved!"
       # Log user in
-      session[:user_id] = user.id
-      redirect_to '/'
+      session[:user_id] = @user.id
+      redirect_to root_path
     else
       flash[:alert] = "Please fix errors"
       render :new
+    end
   end
 
   def show
@@ -35,6 +39,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :phone, :password)
+    params.require(:user).permit(:name, :email, :phone, :password, :password_confirm)
   end
 end
