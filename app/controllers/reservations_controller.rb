@@ -7,4 +7,10 @@ class ReservationsController < ApplicationController
   def create
 
   end
+
+  private
+
+  def reservation_params
+    # comment
+  end
 end
