@@ -1,1 +1,11 @@
-<h1>Seat Yourself</h1>
+<h1>Browse Restaurants</h1>
+
+<% @restaurants.each do |rest| %>
+  <div class="restBox">
+    <h3><%=rest.name%></h3>
+    <p><%=rest.address%></p>
+    <p><%=rest.city%></p>
+    <p><%=rest.price_range%></p>
+    <p>Business hours: <%=rest.open_hour%> to <%=rest.close_hour %></p>
+  </div>
+<% end %>
