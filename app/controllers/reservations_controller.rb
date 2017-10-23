@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
       redirect_to restaurant_url(@restaurant)
     else
       flash[:alert] = "Sorry. Your reservation couldn't be processed."
-      render :new_restaurant_reservation_url
+      render :new
     end
   end
 
