@@ -1,7 +1,7 @@
 <h2>Sign Up</h2>
 
 <div class="row">
-  <%= form_for @user, { url: new_user_path, html: { class: 'col s6 offset-s3' } } do |f| %>
+  <%= form_for @user, { url: users_path, method: :post, html: { class: 'col s6 offset-s3' } } do |f| %>
 
     <div class="row">
       <div class="input-field">
