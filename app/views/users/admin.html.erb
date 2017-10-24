@@ -1,1 +1,9 @@
-<h2>Admin here</h2>
+<h2>Current reservations</h2>
+
+<div>
+  <% current_user.restaurant.reservations.each do |reservation| %>
+  <ul>
+    <li>Customer:<%=  reservation.user.name %></li>
+  </ul>
+  <% end %>
+</div>
