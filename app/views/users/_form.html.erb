@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for user, { url: user.persisted? ? edit_users_path : users_path, html: { class: 'col s6 offset-s3' } } do |f| %>
+  <%= form_for user, { url: user.persisted? ? edit_user_path : user_path, html: { class: 'col s6 offset-s3' } } do |f| %>
 
     <div class="row">
       <div class="input-field">
