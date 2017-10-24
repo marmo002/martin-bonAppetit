@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
     @reservation.status = "confirmed"
     @reservation.save
 
+    flash[:notice] = "The reservation for #{@reservation.user.name} has been confirmed"
     redirect_to admin_path
   end
 
@@ -16,6 +17,7 @@ class ReservationsController < ApplicationController
     @reservation.status = "cancelled"
     @reservation.save
 
+    flash[:notice] = "The reservation for #{@reservation.user.name} has been cancelled"
     redirect_to admin_path
   end
 
