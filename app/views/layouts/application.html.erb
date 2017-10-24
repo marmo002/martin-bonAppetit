@@ -11,12 +11,21 @@
   <body>
     <nav>
       <ul>
-        <li>
-          <%= link_to 'Log in', '#' %>
-        </li>
-        <li>
-          <%= link_to 'Sign up', new_user_path %>
-        </li>
+        <% if current_user %>
+            <li>
+              You are logged in as "<%= current_user.name %>"
+            </li>
+            <li>
+              <%= link_to 'Log Out', session_path("current"), method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to 'Log in', new_session_path %>
+            </li>
+            <li>
+              <%= link_to 'Sign up', new_user_path %>
+            </li>
+          <% end %>
       </ul>
 
     </nav>
