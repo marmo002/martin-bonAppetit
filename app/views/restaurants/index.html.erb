@@ -1,11 +1,11 @@
-<h1>Browse Restaurants</h1>
-
 <% @restaurants.each do |rest| %>
+ <a href="/restaurants/<%= rest.id %>">
   <div class="restBox">
-    <h3><%=rest.name%></h3>
+    <h4><%=rest.name%></h4>
     <p><%=rest.address%></p>
     <p><%=rest.city%></p>
     <p><%=rest.price_range%></p>
     <p>Business hours: <%=rest.open_hour%> to <%=rest.close_hour %></p>
   </div>
+</a>
 <% end %>

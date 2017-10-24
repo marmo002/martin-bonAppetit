@@ -5,4 +5,5 @@
   <p>Description: <%= @restaurant.description %></p>
   <p>Open: <%= @restaurant.open_hour.strftime('%I:%M%p') %></p>
   <p>Close: <%= @restaurant.close_hour.strftime('%I:%M%p') %></p>
+  <p><a href="/restaurants/<%= @restaurant.id %>/reservations/new">Make Reservation</a></p>
 </div>
