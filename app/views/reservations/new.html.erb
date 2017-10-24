@@ -1,14 +1,19 @@
 <h2>Request Reservation</h2>
 
 <%= form_for [@restaurant, @reservation] do |f| %>
-  <div class="form-group">
+<p>
+  <%= @restaurant.open_hour.strftime('%H') %>
+
+</p>
+  <div>
     <%= f.label :date %>
-    <%= f.date_field :date, class: 'form-control' %>
+    <%= f.date_select :date, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div>
     <%= f.label :time %>
-    <%= f.time_field :time, class: 'form-control' %>
+    <%= f.time_select :time, { :default => Time.now.change(:hour => 21), :simple_time_select => true,
+:minute_interval => 30, :time_separator => "", :start_hour => @restaurant.open_hour.strftime('%H').to_i, :end_hour => @restaurant.close_hour.strftime('%H').to_i} %>
   </div>
 
   <div class="form-group">

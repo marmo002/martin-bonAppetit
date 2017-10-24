@@ -26,6 +26,11 @@ class ReservationsController < ApplicationController
   end
 
   def create
+
+
+    if condition
+
+    end
     @reservation = @restaurant.reservations.new(reservation_params)
     @reservation.user_id = current_user.id
 
