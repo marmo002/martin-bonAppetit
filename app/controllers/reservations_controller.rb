@@ -3,6 +3,24 @@ class ReservationsController < ApplicationController
   before_action :require_login
   before_action :load_restaurant
 
+  def confirm
+    @reservation = @restaurant.reservations.find(params[:id])
+    @reservation.status = "confirmed"
+    @reservation.save
+
+    flash[:notice] = "The reservation for #{@reservation.user.name} has been confirmed"
+    redirect_to admin_path
+  end
+
+  def cancel
+    @reservation = @restaurant.reservations.find(params[:id])
+    @reservation.status = "cancelled"
+    @reservation.save
+
+    flash[:notice] = "The reservation for #{@reservation.user.name} has been cancelled"
+    redirect_to admin_path
+  end
+
   def new
     @reservation = @restaurant.reservations.new
   end
