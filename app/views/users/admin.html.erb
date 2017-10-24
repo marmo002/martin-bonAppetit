@@ -1,4 +1,3 @@
-
 <h2>Current reservations</h2>
 
 <div>
@@ -9,8 +8,8 @@
       at: <%=  reservation.time.strftime('%I:%M%p') %>
       st: <%=  reservation.status %>
         <% if reservation.status == "pending" %>
-          <%= link_to "Confirm", restaurant_reservation_confirm_path(current_user, reservation), method: :patch %>
-          <%= link_to "Cancel", restaurant_reservation_cancel_path(current_user, reservation), method: :put %>
+          <%= link_to "Confirm", restaurant_reservation_confirm_path(reservation.restaurant, reservation), method: :patch %>
+          <%= link_to "Cancel", restaurant_reservation_cancel_path(reservation.restaurant, reservation), method: :put %>
         <% elsif reservation.status == "confirmed"  %>
           <span>CONFIRMED</span>
         <% elsif reservation.status == "cancelled"  %>
@@ -26,7 +25,9 @@
   </p>
 <% end %>
 
-<h2>Admin here</h2>
+<h2>Total Reservations for today</h2>
+<p>Seats Reserved <%= current_user.restaurant.todays_reservations %></p>
+<p>Remaining seats: <%= current_user.restaurant.remaining_seats %></p>
 
 <h4>Restaurant Info:</h4>
 
