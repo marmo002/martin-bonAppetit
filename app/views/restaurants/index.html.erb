@@ -5,7 +5,7 @@
     <p><%=rest.address%></p>
     <p><%=rest.city%></p>
     <p><%=rest.price_range%></p>
-    <p>Business hours: <%=rest.open_hour%> to <%=rest.close_hour %></p>
+    <p>Business hours: <%=rest.open_hour.strftime('%I:%M%p')%> to <%=rest.close_hour.strftime('%I:%M%p') %></p>
   </div>
 </a>
 <% end %>
