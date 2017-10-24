@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
   def confirm
     @reservation = @restaurant.reservations.find(params[:id])
     @reservation.status = "confirmed"
-    @reservation.save
+    @reservation.save!
 
     flash[:notice] = "The reservation for #{@reservation.user.name} has been confirmed"
     redirect_to admin_path
@@ -26,11 +26,6 @@ class ReservationsController < ApplicationController
   end
 
   def create
-
-
-    if condition
-
-    end
     @reservation = @restaurant.reservations.new(reservation_params)
     @reservation.user_id = current_user.id
 
