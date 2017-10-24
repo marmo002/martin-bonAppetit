@@ -1,0 +1,22 @@
+<h2>Request Reservation</h2>
+
+<%= form_for [@restaurant, @reservation] do |f| %>
+  <div class="form-group">
+    <%= f.label :date %>
+    <%= f.date_field :date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :time %>
+    <%= f.time_field :time, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :num_seats, 'Seats' %>
+    <%= f.number_field :num_seats, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>

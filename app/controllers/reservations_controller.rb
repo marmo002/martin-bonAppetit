@@ -3,11 +3,6 @@ class ReservationsController < ApplicationController
   before_action :require_login
   before_action :load_restaurant
 
-  def index
-    @reservations = @restaurant.reservations
-    @user_reservations = current_user.reservations
-  end
-
   def new
     @reservation = @restaurant.reservations.new
   end
