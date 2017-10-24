@@ -24,6 +24,32 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.open_hour = @restaurant.open_hour.strftime('%I:%M%p')
+    @restaurant.close_hour = @restaurant.close_hour.strftime('%I:%M%p')
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.name = params[:restaurant][:name]
+    @restaurant.address = params[:restaurant][:address]
+    @restaurant.city = params[:restaurant][:city]
+    @restaurant.price_range = params[:restaurant][:price_range]
+    @restaurant.total_seats = params[:restaurant][:total_seats]
+    @restaurant.open_hour = params[:restaurant][:open_hour]
+    @restaurant.close_hour = params[:restaurant][:close_hour]
+
+
+    if @restaurant.save
+      flash[:notice] = "#{@restaurant.name} has been updated"
+      redirect_to admin_path
+    else
+      flash[:alert] = "There are mistakes in your submission"
+      render :new
+    end
+  end
+
   private
 
   def restaurant_params
