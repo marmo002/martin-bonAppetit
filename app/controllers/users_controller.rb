@@ -29,11 +29,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      render :edit, notice: "Your information has been saved"
+    else
+      render :edit, notice: "Type again"
+    end
 
   end
 
   def admin
-    
+
   end
 
   private
