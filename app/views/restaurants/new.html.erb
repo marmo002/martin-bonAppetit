@@ -2,6 +2,13 @@
 
 <div class="row">
   <%= form_for @restaurant, html: { class: 'col s6 offset-s3' } do |f| %>
+
+    <% flash.each do |key, value| %>
+      <p class="flash">
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      </p>
+    <% end %>
+
     <div class="input-field">
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
