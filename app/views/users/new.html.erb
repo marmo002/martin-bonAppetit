@@ -3,6 +3,12 @@
 <div class="row">
   <%= form_for @user, { url: users_path, method: :post, html: { class: 'col s6 offset-s3' } } do |f| %>
 
+    <% flash.each do |key, value| %>
+      <p class="flash">
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      </p>
+    <% end %>
+
     <div class="row">
       <div class="input-field">
         <%= f.label :name %>
