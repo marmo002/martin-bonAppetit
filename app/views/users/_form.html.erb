@@ -1,32 +1,46 @@
-<%= form_for user, { url: user.persisted? ? edit_users_path : users_path } do |f| %>
+<div class="row">
+  <%= form_for user, { url: user.persisted? ? edit_users_path : users_path, html: { class: 'col s6 offset-s3' } } do |f| %>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
+    <div class="row">
+      <div class="input-field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
-  </div>
+    <div class="row">
+      <div class="input-field">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :phone %>
-    <%= f.phone_field :phone, class: 'form-control' %>
-  </div>
+    <div class="row">
+      <div class="input-field">
+        <%= f.label :phone %>
+        <%= f.phone_field :phone, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
-  </div>
+    <div class="row">
+      <div class="input-field">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password, class: 'form-control' %>
-  </div>
+    <div class="row">
+      <div class="input-field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.submit 'Save' %>
-  </div>
+    <div class="row">
+      <div class="input-field">
+        <%= f.submit 'Save', class: 'waves-effect waves-light btn' %>
+      </div>
+    </div>
+  <% end %>
 
-<% end %>
+</div>
