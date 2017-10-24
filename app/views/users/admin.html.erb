@@ -1,1 +1,22 @@
+<% flash.each do |key, value| %>
+  <p class="flash">
+    <%= content_tag :div, value, class: "flash #{key}" %>
+  </p>
+<% end %>
+
 <h2>Admin here</h2>
+
+
+<h4>Restaurant Info:</h4>
+
+<% restaurant = current_user.restaurant %>
+
+<div class="main restaurant">
+  <p><%= restaurant.name %></p>
+  <p>Address: <%= restaurant.name %></p>
+  <p>Price Range: <%= restaurant.price_range %></p>
+  <p>Description: <%= restaurant.description %></p>
+  <p>Open: <%= restaurant.open_hour.strftime('%I:%M%p') %></p>
+  <p>Close: <%= restaurant.close_hour.strftime('%I:%M%p') %></p>
+  <p><a href="<%= edit_restaurant_path(restaurant.id) %>">Edit Restaurant Info</a></p>
+</div>
