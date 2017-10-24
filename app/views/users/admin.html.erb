@@ -1,1 +1,43 @@
+
+<h2>Current reservations</h2>
+
+<div>
+  <% current_user.restaurant.reservations.each do |reservation| %>
+  <ul>
+    <li>Client: <%=  reservation.user.name %>
+      on: <%=  reservation.date %>
+      at: <%=  reservation.time.strftime('%I:%M%p') %>
+      st: <%=  reservation.status %>
+        <% if reservation.status == "pending" %>
+          <%= link_to "Confirm", restaurant_reservation_confirm_path(current_user, reservation), method: :patch %>
+          <%= link_to "Cancel", restaurant_reservation_cancel_path(current_user, reservation), method: :put %>
+        <% elsif reservation.status == "confirmed"  %>
+          <span>CONFIRMED</span>
+        <% elsif reservation.status == "cancelled"  %>
+          <span>CANCELLED</span>
+        <% end %>
+    </li>
+  </ul>
+  <% end %>
+
+<% flash.each do |key, value| %>
+  <p class="flash">
+    <%= content_tag :div, value, class: "flash #{key}" %>
+  </p>
+<% end %>
+
 <h2>Admin here</h2>
+
+<h4>Restaurant Info:</h4>
+
+<% restaurant = current_user.restaurant %>
+
+<div class="main restaurant">
+  <p><%= restaurant.name %></p>
+  <p>Address: <%= restaurant.name %></p>
+  <p>Price Range: <%= restaurant.price_range %></p>
+  <p>Description: <%= restaurant.description %></p>
+  <p>Open: <%= restaurant.open_hour.strftime('%I:%M%p') %></p>
+  <p>Close: <%= restaurant.close_hour.strftime('%I:%M%p') %></p>
+  <p><a href="<%= edit_restaurant_path(restaurant.id) %>">Edit Restaurant Info</a></p>
+</div>

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "#{@user.name} has been saved!"
+      # flash[:notice] = "#{@user.name} has been saved!"
       # Log user in
       session[:user_id] = @user.id
       redirect_to root_path
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def admin
-
+    
   end
 
   private

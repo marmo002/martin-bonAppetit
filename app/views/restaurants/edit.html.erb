@@ -1,13 +1,5 @@
-<h2>New Restaurant</h2>
-
 <div class="row">
-  <%= form_for @restaurant, html: { class: 'col s6 offset-s3' } do |f| %>
-
-    <% flash.each do |key, value| %>
-      <p class="flash">
-        <%= content_tag :div, value, class: "flash #{key}" %>
-      </p>
-    <% end %>
+  <%= form_for @restaurant ,  method:"patch" , html: { class: 'col s6 offset-s3' } do |f| %>
 
     <div class="input-field">
       <%= f.label :name %>
@@ -41,20 +33,20 @@
 
     <div class="input-field">
       <%= f.label :open_hour %>
-      <%= f.time_select :open_hour, class: 'form-control timepicker' %>
+      <%= f.text_field :open_hour, class: 'form-control timepicker' %>
     </div>
 
     <div class="input-field">
       <%= f.label :close_hour %>
-      <%= f.time_select :close_hour, class: 'form-control timepicker' %>
+      <%= f.text_field :close_hour, class: 'form-control timepicker' %>
     </div>
 
     <div class="input-field">
-      <%= f.submit 'Save', class: 'btn' %>
+      <%= f.submit 'Save', class: 'waves-effect waves-light btn' %>
     </div>
 
     <div class="input-field">
-      <%= link_to 'Cancel', profile_path, class: 'btn' %>
+      <%= link_to 'Cancel', profile_path, class: 'waves-effect waves-light btn' %>
     </div>
   <% end %>
 </div>
