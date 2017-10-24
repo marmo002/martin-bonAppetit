@@ -5,7 +5,7 @@
   <% current_user.restaurant.reservations.each do |reservation| %>
   <ul>
     <li>Client: <%=  reservation.user.name %>
-      on: <%=  reservation.date %>
+      on: <%=  reservation.date.strftime('%A, %B %d, %Y') %>
       at: <%=  reservation.time.strftime('%I:%M%p') %>
       st: <%=  reservation.status %>
         <% if reservation.status == "pending" %>
