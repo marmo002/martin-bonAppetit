@@ -32,8 +32,8 @@ class UsersController < ApplicationController
 
   end
 
-  def destroy
-
+  def admin
+    
   end
 
   private
