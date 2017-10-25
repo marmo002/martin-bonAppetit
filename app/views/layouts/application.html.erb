@@ -11,32 +11,35 @@
 
   <body>
     <nav>
+      <% if current_user %>
+        <%= link_to "Hello, #{current_user.name}", profile_path %>
+      <% end %>
       <ul class="right">
         <li>
           <%= link_to 'Home', root_path %>
         </li>
         <% if current_user %>
-          <li>
-            <%= link_to 'Profile', profile_path %>
-          </li>
-          <% if current_user.is_admin? %>
-            <li>
-              <%= link_to 'Admin', admin_path %>
-            </li>
-          <% end %>
-          <li>
-            <%= link_to 'Log out', session_path(current_user), method: :delete %>
-          </li>
+        <li>
+          <%= link_to 'Profile', profile_path %>
+        </li>
+        <% if current_user.is_admin? %>
+        <li>
+          <%= link_to 'Admin', admin_path %>
+        </li>
+        <% end %>
+        <li>
+          <%= link_to 'Log out', session_path(current_user), method: :delete %>
+        </li>
         <% else %>
-          <li>
-            <%= link_to 'Log in', new_session_path %>
-          </li>
-          <li>
-            <%= link_to 'Sign up', new_user_path %>
-          </li>
+        <li>
+          <%= link_to 'Log in', new_session_path %>
+        </li>
+        <li>
+          <%= link_to 'Sign up', new_user_path %>
+        </li>
         <% end %>
       </ul>
-    </nav>
+  </nav>
 
     <% flash.each do |key, value| %>
       <%= content_tag :div, value, class: "flash #{key}" %>
