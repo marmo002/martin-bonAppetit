@@ -10,7 +10,12 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.new
+    if current_user.restaurant
+      flash[:notice] = "You have already created a restaurant"
+      redirect_to admin_path
+    else
+      @restaurant = Restaurant.new
+    end
   end
 
   def create
