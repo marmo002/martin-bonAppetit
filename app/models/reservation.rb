@@ -6,7 +6,9 @@ class Reservation < ApplicationRecord
   validate :has_enough_seats
 
   def has_enough_seats
-    if self.num_seats > self.restaurant.remaining_seats
+    return if self.num_seats.blank? || self.date.blank?
+    
+    if self.num_seats > self.restaurant.remaining_seats(self.date)
       errors.add(:num_seats, "Sorry, there are only #{self.restaurant.remaining_seats} remaining")
     end
   end

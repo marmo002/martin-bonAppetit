@@ -11,14 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require jquery
-//= require materialize-sprockets
+//= require materialize
 //= require_tree .
 
 
 $(document).ready(function() {
-   $('select').material_select();
+  Materialize.updateTextFields();
+  $('select').material_select();
 
   $('.timepicker').pickatime({
     default: 'now', // Set default time: 'now', '1:30AM', '16:30'

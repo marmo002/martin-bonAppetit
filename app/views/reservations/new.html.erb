@@ -1,27 +1,31 @@
-<h2>Request Reservation</h2>
+<h2>Request Reservation at <%= @restaurant.name %></h2>
 
-<%= form_for [@restaurant, @reservation] do |f| %>
-<p>
-  <%= @restaurant.open_hour.strftime('%H') %>
+<div class="row">
+  <div class="col m6 offset-m3">
+    <%= render 'partials/errors', object: @reservation %>
 
-</p>
-  <div>
-    <%= f.label :date %>
-    <%= f.date_select :date, class: 'form-control' %>
+    <%= form_for [@restaurant, @reservation] do |f| %>
+
+      <div class="input-field">
+        <%= f.date_select :date, { start_year: Time.now.year }, class: 'form-control' %>
+        <%= f.label :date %>
+      </div>
+
+      <div class="input-field">
+        <%= f.time_select :time, { :default => Time.now.change(:hour => 21), :simple_time_select => true,
+    :minute_interval => 30, :time_separator => "", :start_hour => @restaurant.open_hour.strftime('%H').to_i, :end_hour => @restaurant.close_hour.strftime('%H').to_i} %>
+        <%= f.label :time %>
+      </div>
+
+      <div class="input-field">
+        <%= f.label :num_seats, 'Seats' %>
+        <%= f.number_field :num_seats, class: 'form-control' %>
+      </div>
+
+      <div class="input-field">
+        <%= f.submit 'Save', class: 'btn' %>
+      </div>
+
+    <% end %>
   </div>
-
-  <div>
-    <%= f.label :time %>
-    <%= f.time_select :time, { :default => Time.now.change(:hour => 21), :simple_time_select => true,
-:minute_interval => 30, :time_separator => "", :start_hour => @restaurant.open_hour.strftime('%H').to_i, :end_hour => @restaurant.close_hour.strftime('%H').to_i} %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :num_seats, 'Seats' %>
-    <%= f.number_field :num_seats, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit 'Save' %>
-  </div>
-<% end %>
+</div>

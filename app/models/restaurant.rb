@@ -12,11 +12,11 @@ class Restaurant < ApplicationRecord
   validates :name, :address, :description, :city, :price_range, :total_seats, :open_hour, :close_hour, presence: true
 
   # instance methods
-  def todays_reservations
-    self.reservations.where(date: Date.today).where(status: 'confirmed').sum(:num_seats)
+  def reservations_on_day(date)
+    self.reservations.where(date: date).where(status: 'confirmed').sum(:num_seats)
   end
 
-  def remaining_seats
-    self.total_seats - self.todays_reservations
+  def remaining_seats(date)
+    self.total_seats - self.reservations_on_day(date)
   end
 end
