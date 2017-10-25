@@ -39,6 +39,7 @@ class RestaurantsController < ApplicationController
     @restaurant.total_seats = params[:restaurant][:total_seats]
     @restaurant.open_hour = params[:restaurant][:open_hour]
     @restaurant.close_hour = params[:restaurant][:close_hour]
+    @restaurant.description = params[:restaurant][:description]
 
 
     if @restaurant.save
