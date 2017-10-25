@@ -12,6 +12,13 @@
         <%= form_tag(@restaurant, method: :get, id: "search-form") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Restaurant name" %>
           <%= submit_tag 'Search', name: nil, class: 'btn' %>
+          <% if params[:search]%>
+            <%= link_to 'Clear', root_url, class: 'btn' %>
+          <% end %>
+        <% end %>
+
+        <% if params[:search] && @restaurants.empty? %>
+          Sorry, no results for <%= params[:search] %>
         <% end %>
       </div>
     </div>
