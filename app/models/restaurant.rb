@@ -19,4 +19,8 @@ class Restaurant < ApplicationRecord
   def remaining_seats(date)
     self.total_seats - self.reservations_on_day(date)
   end
+
+  def self.search(search)
+    where("name ILIKE ?", "%#{search}")
+  end
 end

@@ -7,7 +7,16 @@
   </div>
 
   <div class="restaurant_info">
-    <h2>Restaurants</h2>
+    <div class="row center">
+      <div class="col m12">
+        <%= form_tag(@restaurant, method: :get, id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Restaurant name" %>
+          <%= submit_tag 'Search', name: nil, class: 'btn' %>
+        <% end %>
+      </div>
+    </div>
+
+    <h2 class="res_home">Restaurants</h2>
     <div class="row">
       <% @restaurants.each do |rest| %>
         <div class="col m6">
