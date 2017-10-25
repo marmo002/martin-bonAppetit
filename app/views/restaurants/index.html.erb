@@ -1,11 +1,32 @@
-<% @restaurants.each do |rest| %>
- <a href="/restaurants/<%= rest.id %>">
-  <div class="restBox">
-    <h4><%=rest.name%></h4>
-    <p><%=rest.address%></p>
-    <p><%=rest.city%></p>
-    <p><%=rest.price_range%></p>
-    <p>Business hours: <%=rest.open_hour.strftime('%I:%M%p')%> to <%=rest.close_hour.strftime('%I:%M%p') %></p>
+<div class="restaurants_index">
+
+  <div class="home_image">
+    <div class="text_container">
+      <h1>Seat Yourself</h1>
+    </div>
   </div>
-</a>
-<% end %>
+
+  <div class="restaurant_info">
+    <h2>Restaurants</h2>
+    <div class="row">
+      <% @restaurants.each do |rest| %>
+        <div class="col m6">
+          <div class="card hoverable restaurant_card">
+            <div class="card-content">
+              <a href="/restaurants/<%= rest.id %>">
+                <div class="restBox">
+                  <h4 class="restaurant_name"><%=rest.name%></h4>
+                  <hr>
+                  <p>Address: <%=rest.address%></p>
+                  <p>City: <%=rest.city%></p>
+                  <p>Price Range: $<%=rest.price_range%></p>
+                  <p>Business hours: <%=rest.open_hour.strftime('%I:%M%p')%> to <%=rest.close_hour.strftime('%I:%M%p') %></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

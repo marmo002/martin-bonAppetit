@@ -1,12 +1,9 @@
+<h2 class="reser restaurant_name">Editing <%= @restaurant.name %></h2>
+
 <div class="row">
+  <%= render 'partials/errors', object: @restaurant %>
 
   <%= form_for @restaurant ,  method:"patch" , html: { class: 'col s6 offset-s3' } do |f| %>
-
-    <% @restaurant.errors.full_messages.each do |error| %>
-      <p class="flash">
-        <%= content_tag :div, error , class: "flash #{}" %>
-      </p>
-    <% end %>
 
     <div class="input-field">
       <%= f.label :name %>
@@ -50,9 +47,6 @@
 
     <div class="input-field">
       <%= f.submit 'Save', class: 'waves-effect waves-light btn' %>
-    </div>
-
-    <div class="input-field">
       <%= link_to 'Cancel', admin_path, class: 'waves-effect waves-light btn' %>
     </div>
   <% end %>

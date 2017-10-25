@@ -6,12 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Lora|Roboto:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Lato:300" rel="stylesheet">
   </head>
 
   <body>
     <nav>
-      <ul>
+      <ul class="right">
         <li>
           <%= link_to 'Home', root_path %>
         </li>
@@ -36,8 +36,14 @@
           </li>
         <% end %>
       </ul>
-
     </nav>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key}" %>
+    <% end %>
+
     <%= yield %>
+    <!-- Credits -->
+    <!-- pomegranate image: from @valeria_aksakova - freepik -->
   </body>
 </html>

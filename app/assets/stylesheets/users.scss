@@ -17,6 +17,22 @@
 .card-title {
   .restaurant {
     font-size: 30px;
-    color: #0B90AA;
+    color: $color4;
   }
+}
+
+.username {
+  font-family: 'Kaushan Script', cursive;
+  color: #FC6453;
+}
+
+.reser.restaurant_name {
+  font-size: 25px;
+  margin-bottom: 25px;
+  color: #FC6453 !important;
+}
+
+.status {
+  font-weight: bold;
+  color: $color4 !important;
 }

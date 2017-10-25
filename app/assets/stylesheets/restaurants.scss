@@ -1,3 +1,65 @@
-// Place all the styles related to the Restaurants controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.restaurants_index {
+  width: 100vw;
+  height: calc(100vh - 64px);
+  display: flex;
+
+  .home_image {
+    width: 50%;
+    background-image: image-url('pome.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .text_container {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      h1 {
+        font-family: 'Kaushan Script', cursive;
+        padding-top: 50px;
+        color: #FFF;
+        text-shadow: 2px 2px #333;
+      }
+    }
+  }
+
+  .restaurant_info {
+    width: 50%;
+    height: 100%;
+    overflow-y: scroll;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    a {
+      color: #04384A;
+    }
+  }
+}
+
+.restaurant_name {
+  font-family: 'Kaushan Script', cursive;
+  color: #FC6453;
+}
+
+.description {
+  font-size: 24px;
+  color: #000;
+}
+
+@media (max-width: 800px) {
+  .restaurants_index {
+    display: block;
+
+    .home_image {
+      height: auto;
+      width: 100%;
+    }
+
+    .restaurant_info {
+      height: auto;
+      width: 100%;
+    }
+  }
+}
