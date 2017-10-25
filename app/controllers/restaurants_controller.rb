@@ -42,11 +42,10 @@ class RestaurantsController < ApplicationController
 
 
     if @restaurant.save
-      flash[:notice] = "#{@restaurant.name} has been updated"
       redirect_to admin_path
     else
       flash[:alert] = "There are mistakes in your submission"
-      render :new
+      render :edit
     end
   end
 

@@ -1,9 +1,20 @@
-<div class="main restaurant">
-  <h2><%= @restaurant.name %></h2>
-  <p>Address: <%= @restaurant.name %></p>
-  <p>Price Range: <%= @restaurant.price_range %></p>
-  <p>Description: <%= @restaurant.description %></p>
-  <p>Open: <%= @restaurant.open_hour.strftime('%I:%M%p') %></p>
-  <p>Close: <%= @restaurant.close_hour.strftime('%I:%M%p') %></p>
-  <p><a href="/restaurants/<%= @restaurant.id %>/reservations/new">Make Reservation</a></p>
+<h2><%= @restaurant.name %></h2>
+
+<div class="row">
+  <div class="col m6 offset-m3">
+    <div class="card hoverable restaurant_card">
+      <div class="card-content">
+        <div class="main restaurant center">
+          <p class="description"><%= @restaurant.description %></p>
+          <hr>
+          <p>Price Range: <%= @restaurant.price_range %></p>
+          <p>Hours: <%= @restaurant.open_hour.strftime('%I:%M%p') %> to <%= @restaurant.close_hour.strftime('%I:%M%p') %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="center">
+      <%= link_to 'Make Reservation', new_restaurant_reservation_path(@restaurant), class: 'btn' %>
+    </div>
+  </div>
 </div>

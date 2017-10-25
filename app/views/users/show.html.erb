@@ -1,5 +1,5 @@
 <div class="profile-container">
-  <h2><%= current_user.name %></h2>
+  <h2 class="username"><%= current_user.name %></h2>
 
   <% if !current_user.is_admin? %>
     <%= link_to 'Create Restaurant', new_restaurant_path, class: 'btn' %>
@@ -9,18 +9,22 @@
 
   <div class="row">
     <div class="col">
-      <div class="card">
-        <% current_user.reservations.order(created_at: :desc).each do |reservation| %>
+
+      <% current_user.reservations.order(created_at: :desc).each do |reservation| %>
+        <div class="card">
           <div class="card-content">
             <span class="card-title">
-              <p class="restaurant">Restaurant: <%= reservation.restaurant.name %></p>
-              <p>Date: <%= reservation.date %></p>
+              <p class="reser restaurant_name">Restaurant: <%= reservation.restaurant.name %></p>
+              <hr>
+              <p>Date: <%= reservation.date.strftime('%A, %B %d, %Y') %></p>
               <p>Time: <%= reservation.time.strftime('%I:%M%p') %></p>
-              <p>Number of peole: <%= reservation.num_seats %></p>
+              <p>Number of people: <%= reservation.num_seats %></p>
+              <p class="status">Your Reservation is: <%= reservation.status.upcase %></p>
             </span>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>
