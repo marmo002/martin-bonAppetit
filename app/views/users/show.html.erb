@@ -2,7 +2,9 @@
   <h2 class="username"><%= current_user.name %></h2>
 
   <% if !current_user.is_admin? %>
-    <%= link_to 'Create Restaurant', new_restaurant_path, class: 'btn' %>
+    <div class="create_res_container">
+      <%= link_to 'Create Restaurant', new_restaurant_path, class: 'btn center' %>
+    </div>
   <% end %>
 
   <h3>My Reservations</h3>

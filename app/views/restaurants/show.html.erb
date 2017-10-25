@@ -7,7 +7,7 @@
         <div class="main restaurant center">
           <p class="description"><%= @restaurant.description %></p>
           <hr>
-          <p>Price Range: <%= @restaurant.price_range %></p>
+          <p>Price Range: $<%= @restaurant.price_range %></p>
           <p>Hours: <%= @restaurant.open_hour.strftime('%I:%M%p') %> to <%= @restaurant.close_hour.strftime('%I:%M%p') %></p>
         </div>
       </div>
