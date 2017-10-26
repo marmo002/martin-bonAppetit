@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>🥑 GUACAMOLE</title>
+    <title><%= content_for(:title) || "Seat Yourself" %></title>
     <%= csrf_meta_tags %>
-
+    <%= content_for(:metas) if content_for?(:metas) %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
