@@ -10,6 +10,16 @@
       <%= f.text_field :name, class: 'form-control' %>
     </div>
 
+    <div class="input-field file-field">
+      <div class="btn">
+        <span>Image</span>
+          <%= f.file_field :image, class: 'form-control' %>
+      </div>
+      <div class="file-path-wrapper">
+        <input type="text" class="file-path validate">
+      </div>
+    </div>
+
     <div class="input-field">
       <%= f.label :description %>
       <%= f.text_field :description, class: 'materialize-textarea' %>
@@ -43,6 +53,11 @@
     <div class="input-field">
       <%= f.label :close_hour %>
       <%= f.text_field :close_hour, class: 'form-control timepicker' %>
+    </div>
+
+    <div class="input-field">
+      <%= f.label :twitter_handle %>
+      <%= f.text_field :twitter_handle, class: 'form-control' %>
     </div>
 
     <div class="input-field">

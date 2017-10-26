@@ -42,17 +42,8 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
-    @restaurant.name = params[:restaurant][:name]
-    @restaurant.address = params[:restaurant][:address]
-    @restaurant.city = params[:restaurant][:city]
-    @restaurant.price_range = params[:restaurant][:price_range]
-    @restaurant.total_seats = params[:restaurant][:total_seats]
-    @restaurant.open_hour = params[:restaurant][:open_hour]
-    @restaurant.close_hour = params[:restaurant][:close_hour]
-    @restaurant.description = params[:restaurant][:description]
 
-
-    if @restaurant.save
+    if @restaurant.update(restaurant_params)
       redirect_to admin_path
     else
       flash[:alert] = "There are mistakes in your submission"
@@ -63,6 +54,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :city, :price_range, :total_seats, :open_hour, :close_hour, :description)
+    params.require(:restaurant).permit(:name, :address, :city, :price_range, :total_seats, :open_hour, :close_hour, :description, :image, :twitter_handle)
   end
 end
