@@ -53,7 +53,7 @@
   color: #000;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1017px) {
   .restaurants_index {
     display: block;
 
@@ -77,7 +77,7 @@
   font-weight: bolder;
   color: #FC6453;
 
-  @media(max-width: 650px) {
+  @media(max-width: 1017px) {
     display: none;
   }
 }
