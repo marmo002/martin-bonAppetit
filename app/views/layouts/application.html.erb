@@ -14,31 +14,31 @@
   <body>
     <nav>
       <% if current_user %>
-        <%= link_to "Hello, #{current_user.name}", profile_path %>
+        <%= link_to "Hello, #{current_user.name}!", profile_path, class: 'user_name' %>
       <% end %>
-      <ul class="right">
+      <ul id="nav-mobile" class="right">
         <li>
           <%= link_to 'Home', root_path %>
         </li>
         <% if current_user %>
-        <li>
-          <%= link_to 'Profile', profile_path %>
-        </li>
+          <li>
+            <%= link_to 'Profile', profile_path %>
+          </li>
         <% if current_user.is_admin? %>
-        <li>
-          <%= link_to 'Admin', admin_path %>
-        </li>
+          <li>
+            <%= link_to 'Admin', admin_path %>
+          </li>
         <% end %>
         <li>
           <%= link_to 'Log out', session_path(current_user), method: :delete %>
         </li>
         <% else %>
-        <li>
-          <%= link_to 'Log in', new_session_path %>
-        </li>
-        <li>
-          <%= link_to 'Sign up', new_user_path %>
-        </li>
+          <li>
+            <%= link_to 'Log in', new_session_path %>
+          </li>
+          <li>
+            <%= link_to 'Sign up', new_user_path %>
+          </li>
         <% end %>
       </ul>
   </nav>
@@ -49,6 +49,7 @@
 
     <%= yield %>
 
+    <!-- Twitter JS for tweet widget | btn -->
     <script>
       window.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],

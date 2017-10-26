@@ -76,8 +76,13 @@
   font-size: 2rem;
   font-weight: bolder;
   color: #FC6453;
+
+  @media(max-width: 650px) {
+    display: none;
+  }
 }
 
 .create_res_container {
   margin: 0 auto;
+  text-align: center;
 }

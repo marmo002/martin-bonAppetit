@@ -17,6 +17,7 @@ p, td {
 
 h1 {
   font-size: 4rem;
+  text-align: center;
 }
 
 h2 {
@@ -37,6 +38,14 @@ hr {
 
 nav {
   background-color: $color4;
+}
+
+.user_name {
+  display: inline;
+
+  @media(max-width: 650px) {
+    display: none;
+  }
 }
 
 .btn, .btn-flat {
@@ -90,4 +99,14 @@ form {
   text-align: center;
   color: red;
   font-size: 18px;
+}
+
+.tweet-btn {
+  display: flex;
+  justify-content: flex-end;
+
+  img {
+    width: 60px;
+    border-radius: 50%;
+  }
 }

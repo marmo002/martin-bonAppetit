@@ -13,23 +13,34 @@
 
 <h2><%= @restaurant.name %></h2>
 
+<div class="center">
+  <%= link_to 'Make Reservation', new_restaurant_reservation_path(@restaurant), class: 'btn reservation-btn' %>
+</div>
+
 <div class="row">
   <div class="col m6 offset-m3">
     <div class="card hoverable restaurant_card">
       <div class="card-content">
         <div class="main restaurant center">
-          <p class="description"><%= @restaurant.description %></p>
-          <hr>
-          <img class="image_show" src="<%= @restaurant.image.card.url %>" alt="<%= @restaurant.name%>">
+          <div class="tweet-btn">
+            <a href="https://twitter.com/intent/tweet">
+              <%= image_tag 'twitter.svg', class: 'z-depth-2 hoverable' %>
+            </a>
+          </div>
+          <p class="description">
+            <%= @restaurant.description %>
+          </p>
           <hr>
           <p>Price Range: $<%= @restaurant.price_range %></p>
           <p>Hours: <%= @restaurant.open_hour.strftime('%I:%M%p') %> to <%= @restaurant.close_hour.strftime('%I:%M%p') %></p>
+          <hr>
+          <img class="image_show" src="<%= @restaurant.image.card.url %>" alt="<%= @restaurant.name%>">
+          <% if @restaurant.twitter_handle %>
+            <hr>
+            <a href="https://twitter.com/<%= @restaurant.twitter_handle %>" data-height="800" data-link-color='#FC6453' data-border-color='#593f62' class="twitter-timeline">Tweets by @<%= @restaurant.twitter_handle %></a>
+          <% end %>
         </div>
       </div>
-    </div>
-
-    <div class="center">
-      <%= link_to 'Make Reservation', new_restaurant_reservation_path(@restaurant), class: 'btn' %>
     </div>
   </div>
 </div>

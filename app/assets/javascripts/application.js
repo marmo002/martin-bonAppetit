@@ -19,6 +19,7 @@
 $(document).ready(function() {
   Materialize.updateTextFields();
   $('select').material_select();
+  $('.button-collapse').sideNav();
 
   $('.timepicker').pickatime({
     default: 'now', // Set default time: 'now', '1:30AM', '16:30'
