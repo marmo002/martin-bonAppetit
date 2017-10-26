@@ -23,7 +23,7 @@
       <div class="card-content">
         <div class="main restaurant center">
           <div class="tweet-btn">
-            <a href="https://twitter.com/intent/tweet">
+            <a href="https://twitter.com/intent/tweet?text=<%= @restaurant.name %>&url=<%= request.original_url %>">
               <%= image_tag 'twitter.svg', class: 'z-depth-2 hoverable' %>
             </a>
           </div>
@@ -37,6 +37,7 @@
           <img class="image_show" src="<%= @restaurant.image.card.url %>" alt="<%= @restaurant.name%>">
           <% if @restaurant.twitter_handle %>
             <hr>
+            <!-- Tweeter feed -->
             <a href="https://twitter.com/<%= @restaurant.twitter_handle %>" data-height="800" data-link-color='#FC6453' data-border-color='#593f62' class="twitter-timeline">Tweets by @<%= @restaurant.twitter_handle %></a>
           <% end %>
         </div>
