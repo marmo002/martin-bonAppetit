@@ -7,9 +7,9 @@
 <% end %>
 
 <!-- Capture title to display in layout head -->
-<% content_for :title { @restaurant.name } %>
-
-
+<% content_for :title do %>
+  <%= @restaurant.name %>
+<% end %>
 
 <h2><%= @restaurant.name %></h2>
 
