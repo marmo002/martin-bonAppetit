@@ -43,12 +43,17 @@
   color: #FC6453;
 }
 
+.image_card,
+.image_show {
+  max-width: 100%;
+}
+
 .description {
   font-size: 24px;
   color: #000;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1017px) {
   .restaurants_index {
     display: block;
 
@@ -71,8 +76,13 @@
   font-size: 2rem;
   font-weight: bolder;
   color: #FC6453;
+
+  @media(max-width: 1017px) {
+    display: none;
+  }
 }
 
 .create_res_container {
   margin: 0 auto;
+  text-align: center;
 }

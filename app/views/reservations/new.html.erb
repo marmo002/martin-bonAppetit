@@ -1,17 +1,17 @@
-<h2>Request Reservation at <%= @restaurant.name %></h2>
+<h2>Reserve at <span class="restaurant_name"><%= @restaurant.name %></span></h2>
 
 <div class="row">
-  <div class="col m6 offset-m3">
+  <div class="col s10 offset-s1 m8 offset-m2 l4 offset-l4">
     <%= render 'partials/errors', object: @reservation %>
 
     <%= form_for [@restaurant, @reservation] do |f| %>
 
-      <div class="input-field">
+      <div class="input-field date-time-select">
         <%= f.date_select :date, { start_year: Time.now.year }, class: 'form-control' %>
         <%= f.label :date %>
       </div>
 
-      <div class="input-field">
+      <div class="input-field date-time-select">
         <%= f.time_select :time, { :default => Time.now.change(:hour => 21), :simple_time_select => true,
     :minute_interval => 30, :time_separator => "", :start_hour => @restaurant.open_hour.strftime('%H').to_i, :end_hour => @restaurant.close_hour.strftime('%H').to_i} %>
         <%= f.label :time %>

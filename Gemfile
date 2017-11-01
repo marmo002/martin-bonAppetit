@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'materialize-sass', '~> 0.100.2'
+gem 'fog-aws', '~> 1.4', '>= 1.4.1'
+gem 'mini_magick', '~> 4.8'
+gem 'carrierwave', '~> 1.2', '>= 1.2.1'
 
 gem 'twilio-ruby', '~> 5.4', '>= 5.4.2'
 

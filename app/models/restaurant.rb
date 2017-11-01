@@ -1,4 +1,5 @@
 class Restaurant < ApplicationRecord
+  mount_uploader :image, ImageUploader
 
   PRICE_RANGES = {
     '15 - 30' => '$15 to $30',
@@ -11,6 +12,11 @@ class Restaurant < ApplicationRecord
 
   validates :name, :address, :description, :city, :price_range, :total_seats, :open_hour, :close_hour, presence: true
 
+  # class method
+  def self.search(search)
+    where("name ILIKE ?", "%#{search}")
+  end
+
   # instance methods
   def reservations_on_day(date)
     self.reservations.where(date: date).where(status: 'confirmed').sum(:num_seats)
@@ -18,9 +24,5 @@ class Restaurant < ApplicationRecord
 
   def remaining_seats(date)
     self.total_seats - self.reservations_on_day(date)
-  end
-
-  def self.search(search)
-    where("name ILIKE ?", "%#{search}")
   end
 end

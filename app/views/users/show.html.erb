@@ -10,8 +10,7 @@
   <h3>My Reservations</h3>
 
   <div class="row">
-    <div class="col">
-
+    <div class="col s10 offset-s1 m6 offset-m3 l4 offset-l4">
       <% current_user.reservations.order(created_at: :desc).each do |reservation| %>
         <div class="card">
           <div class="card-content">

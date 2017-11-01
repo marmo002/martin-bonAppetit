@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>🥑🥑🥑 GUACAMOLE</title>
+    <title><%= content_for(:title) || "Seat Yourself" %></title>
     <%= csrf_meta_tags %>
-
+    <%= content_for(:metas) if content_for?(:metas) %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="shortcut icon" href="aguacate.ico">
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Lato:300" rel="stylesheet">
   </head>
 
   <body>
     <nav>
       <% if current_user %>
-        <%= link_to "Hello, #{current_user.name}", profile_path %>
+        <%= link_to "Hello, #{current_user.name}!", profile_path, class: 'user_name' %>
       <% end %>
-      <ul class="right">
+      <ul id="nav-mobile" class="right">
         <li>
           <%= link_to 'Home', root_path %>
         </li>
         <% if current_user %>
-        <li>
-          <%= link_to 'Profile', profile_path %>
-        </li>
+          <li>
+            <%= link_to 'Profile', profile_path %>
+          </li>
         <% if current_user.is_admin? %>
-        <li>
-          <%= link_to 'Admin', admin_path %>
-        </li>
+          <li>
+            <%= link_to 'Admin', admin_path %>
+          </li>
         <% end %>
         <li>
           <%= link_to 'Log out', session_path(current_user), method: :delete %>
         </li>
         <% else %>
-        <li>
-          <%= link_to 'Log in', new_session_path %>
-        </li>
-        <li>
-          <%= link_to 'Sign up', new_user_path %>
-        </li>
+          <li>
+            <%= link_to 'Log in', new_session_path %>
+          </li>
+          <li>
+            <%= link_to 'Sign up', new_user_path %>
+          </li>
         <% end %>
       </ul>
   </nav>
@@ -46,6 +48,27 @@
     <% end %>
 
     <%= yield %>
+
+    <!-- Twitter JS for tweet widget | btn -->
+    <script>
+      window.twttr = (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function(f) {
+          t._e.push(f);
+        };
+
+        return t;
+      }(document, "script", "twitter-wjs"));
+    </script>
+
     <!-- Credits -->
     <!-- pomegranate image: from @valeria_aksakova - freepik -->
   </body>
