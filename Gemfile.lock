@@ -96,6 +96,7 @@ GEM
     formatador (0.2.5)
       activesupport (>= 4.2.0)
     globalid (0.4.1)
+      activesupport (>= 4.2.0)
     i18n (0.9.0)
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
@@ -254,4 +255,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
