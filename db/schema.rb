@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20171026001816) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
-    t.string "image", null: false
+    t.string "image"
     t.string "twitter_handle"
   end
 
