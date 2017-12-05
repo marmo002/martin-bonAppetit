@@ -13,7 +13,7 @@ class Reservation < ApplicationRecord
     )
 
     client.api.account.messages.create(
-      from: ENV.fetch('PHONE_NUMBER'),
+      from: ENV.fetch('TWILIO_PHONE_BON'),
       to: "+1#{self.user.phone}",
       body: "You have a reservation at #{self.restaurant.name} on #{self.date} at #{self.time.strftime('%I:%M%p')}"
     )
